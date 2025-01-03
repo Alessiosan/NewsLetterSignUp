@@ -1,0 +1,262 @@
+/* # Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+> 💡 These are just the design sizes. Ensure content is responsive and meets WCAG requirements by testing the full range of screen sizes from 320px to large screens.
+
+## Colors
+
+### Primary
+
+- Tomato: hsl(4, 100%, 67%)
+
+### Neutral
+
+- Dark Slate Grey: hsl(234, 29%, 20%)
+- Charcoal Grey: hsl(235, 18%, 26%)
+- Grey: hsl(231, 7%, 60%)
+- White: hsl(0, 0%, 100%)
+
+## Typography
+
+### Body Copy
+
+- Font size (paragraph): 16px
+
+### Font
+
+- Family: [Roboto](https://fonts.google.com/specimen/Roboto)
+- Weights: 400, 700
+
+> 💎 [Upgrade to Pro](https://www.frontendmentor.io/pro?ref=style-guide) for design file access to see all design details and get hands-on experience using a professional workflow with tools like Figma. */
+
+:root {
+   --clr-primary: hsl(4, 100%, 67%);
+   --clr-error: hsl(4, 61%, 85%);
+   --clr-900: hsl(234, 29%, 20%);
+   --clr-700: hsl(235, 18%, 26%);
+   --clr-400: hsl(231, 7%, 60%);
+   --clr-white: hsl(0, 0%, 100%);
+
+   --ff-primary: 'Roboto', sans-serif;
+   --fw-400: 400;
+   --fw-700: 700;
+   --fs-body: 1.05rem;
+   --fs-labels: 0.85rem;
+
+   --border-radius: 25px
+}
+
+html {
+   font-size: var(--fs-body);
+   font-family: var(--ff-primary);
+}
+
+body {
+   background-color: var(--clr-900);
+}
+
+.container {
+   max-width: 1440px;
+   min-width: 800px;
+   display: grid;
+   grid-template-columns: 1fr 0.75fr;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   
+   background-color: var(--clr-white);
+   border-radius: var(--border-radius);
+}
+
+
+
+.sign-up-container {
+   display: grid;
+   gap: 1rem;
+   padding: 4rem 3rem;
+}
+
+.sign-up-container h1 {
+   font-size: 3rem;
+   font-weight: var(--fw-700);
+   color: var(--clr-900);
+}
+
+.sign-u-container p {
+   color: var(--clr-900);
+}
+
+.sign-up-container ul {
+   padding: 0;
+   margin: 0;
+   list-style: none;
+   display: grid;
+   gap: 0.25rem;
+}
+
+.sign-up-container li::before {
+   content: url('../assets/images/icon-list.svg');
+}
+
+.sign-up-container li {
+   display: grid;
+   grid-template-columns: 2.5rem auto;
+}
+
+.sign-up-form {
+   display: grid;
+   margin-top: 1rem;
+}
+
+.sign-up-form label {
+   color: var(--clr-900);
+   font-weight: var(--fw-700);
+
+   font-size: var(--fs-labels);
+  
+}
+
+.sign-up-form .input-info {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.input-info {
+   margin-bottom: .5rem;
+}
+
+.input-info .error-output {
+   font-size: var(--fs-labels);
+   font-weight: var(--fw-700);
+   color: var(--clr-primary);
+
+   display: none;
+}
+
+.sign-up-form #email {
+   padding: .75rem 1rem;
+   border: 1px solid var(--clr-400);
+   border-radius: 10px;
+   margin-bottom: 1.25rem;
+   color: var(--clr-700);
+}
+
+.sign-up-form #email.error {
+   background-color: var(--clr-error);
+
+}
+
+.submit-btn,
+.success-window-btn {
+   padding: 1em 1.25em;
+   background-color: var(--clr-900);
+   color: var(--clr-white);
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   font-weight: var(--fw-700);
+}
+
+.img-container {
+   margin: 1rem;
+   height: 100%;
+}
+
+.img-container img {
+   min-width: 270px;
+   height: 100%;
+}
+
+.success-window {
+   display: none;
+
+   background-color: var(--clr-white);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: var(--border-radius);
+
+   max-width: 600px;
+   padding: 5rem 3rem;
+   flex-direction: column;
+   gap: 2rem;
+   align-items: start;
+}
+
+.success-window-btn {
+   width: 100%;
+   margin-top: auto;
+}
+
+button:hover {
+   opacity: 0.80;
+   transition: 0.2s ease-in 0.1s;
+}
+
+
+@media screen and (max-width: 768px) {
+   body {
+      background-color: var(--clr-white);
+   }
+
+   .container {
+      min-width: 0;
+      grid-template-columns: 1fr;
+      position: static;
+      top: none;
+      left: none;
+      transform: none;
+      border-radius: 0px;
+   }
+
+   .sign-up-container {
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+   }
+
+   .sign-up-form {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .img-container {
+      grid-row: 1;
+      margin: 0;
+   }
+
+   .img-container img {
+      width: 100%;
+      height: auto;
+   }
+
+   .success-window {
+      height: 100dvh;
+      padding: 13rem 3rem 4rem;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: start;
+
+      max-width: 100%;
+      position: static;
+      top: none;
+      left: none;
+      transform: none;
+
+   }
+
+   .success-window .btn {
+      margin-top: auto;
+      width: 100%;
+   }
+
+}
